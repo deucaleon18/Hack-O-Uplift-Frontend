@@ -12,13 +12,23 @@ const Selection= () => {
       <div className="selection">
         <div className="donorselect">
           <img className="selectionimage" src={img_1} alt="" />
-          <button className="donorbutton" onClick={()=>{window.location="/dashboard/donor"}}>DONOR</button>
+          <button className="donorbutton" onClick={()=>{
+            localStorage.setItem("donor",true)
+
+            window.location="/dashboard/donor"
+            
+            }}>DONOR</button>
         </div>
 
         <div className="receiverselect" >
           <img className="selectionimage" src={img_2} alt="" />
 
-          <button className="receiverbutton" onClick={()=>{window.location="/dashboard/receiver"}}>RECEIVER</button>
+          <button className="receiverbutton" onClick={()=>{
+            localStorage.setItem("donor", false);
+            window.location="/dashboard/receiver"
+           
+          
+          }}>RECEIVER</button>
         </div>
       </div>
     );

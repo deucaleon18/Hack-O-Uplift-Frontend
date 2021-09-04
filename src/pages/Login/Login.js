@@ -19,7 +19,7 @@ const Login = () => {
         localStorage.setItem("identifier", payload.identifier);
         localStorage.setItem("identifier_type", payload.identifier_type);
         localStorage.setItem("verification_token", payload.verification_token);
-        window.location = "/selection";
+        window.location = "/details";
       },
     };
 

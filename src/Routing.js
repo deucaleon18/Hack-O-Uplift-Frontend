@@ -7,12 +7,14 @@ import Login from "../src/pages/Login/Login";
 
 import LandingSectionDonor from './pages/LandingSection/LandingSectionDonor/LandingSectionDonor'
 import LandingSectionReceiver from './pages/LandingSection/LandingSectionReceiver/LandingSectionReceiver'
-
+import Details from './pages/Details/Details';
+import RequestForm from './pages/ReceiverForm/ReceiverForm'
 const Routing = () => {
 
 
 
- const donor = localStorage.getItem("donor");
+//  const donor = localStorage.getItem("donor");
+
     return (
       <div>
         <Router>
@@ -20,17 +22,22 @@ const Routing = () => {
             <Selection />
           </Route>
           <Route exact path="/">
-       
             <Login />
           </Route>
-     
+
           <Route exact path="/dashboard/donor">
             <LandingSectionDonor />
           </Route>
           <Route exact path="/dashboard/receiver">
             <LandingSectionReceiver />
           </Route>
-          <Route></Route>
+
+          <Route exact path="/details">
+            <Details />
+          </Route>
+          <Route exact path="/requestform">
+            <RequestForm/>
+          </Route>
         </Router>
       </div>
     );

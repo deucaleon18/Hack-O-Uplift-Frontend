@@ -1,5 +1,7 @@
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&display=swap');
+
+*{
 
 
-  
+ font-family: 'Nunito Sans', sans-serif;
 }
