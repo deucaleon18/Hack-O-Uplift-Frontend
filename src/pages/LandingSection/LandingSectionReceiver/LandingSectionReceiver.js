@@ -1,5 +1,5 @@
  
-import React, { useEffect, usetate } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import "./LandingSectionReceiver.css";
@@ -9,8 +9,34 @@ import AppBar from "@material-ui/core/AppBar";
 import Footer from "../../../components/Footer/Footer";
 import InvertColorsIcon from "@material-ui/icons/InvertColors";
 import Fade from "react-reveal/Fade";
+const uid = localStorage.getItem("user_id");
+
 
 const LandingSectionReceiver = () => {
+
+ const[laoding,setLoading]=useState(false);
+ const[requests,setRequests]=useState([])
+
+
+
+  useEffect(()=>{
+
+    const getUserRequests=async()=>{
+   await axios.get(`/userrequests/${uid}`)
+
+   .then((res)=>{
+       console.log(res.data)
+       setRequests(res.data)
+   })
+   .catch((err)=>{
+     console.log(err)
+   })
+   
+    }
+
+ getUserRequests();
+
+  },[])
   return (
     <div>
       <Fade top>
@@ -50,32 +76,20 @@ const LandingSectionReceiver = () => {
       <div className="user-requests">
         <div className="heading">KEEP A TRACK OF YOUR REQUESTS</div>
 
-        {/* <div className="request-grid">
-          <div className="request-box">
-            <div className="request-box-image"></div>
-            <div className="request-box-title"></div>
+        <div className="request-grid">
+          {requests.map((request) => {
+            const { reason, uid, bloodgroup, status, city,_id } = request;
+            return (
+              <div className="request-box">
+                <div className="request-box-image"></div>
+                <div className="request-box-title"></div>
 
-            <div className="request-box-desc"></div>
-          </div>
-          <div className="request-box">
-            <div className="request-box-image"></div>
-            <div className="request-box-title"></div>
-
-            <div className="request-box-desc"></div>
-          </div>
-          <div className="request-box">
-            <div className="request-box-image"></div>
-            <div className="request-box-title"></div>
-
-            <div className="request-box-desc"></div>
-          </div>
-          <div className="request-box">
-            <div className="request-box-image"></div>
-            <div className="request-box-title"></div>
-
-            <div className="request-box-desc"></div>
-          </div>
-        </div> */}
+                <div className="request-box-desc">{reason}</div>
+                <button className="know-more-btn"  onClick={()=>window.location=`/user/bloodrequest/${_id}`}  >KNOW MORE</button>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* <Footer /> */}
