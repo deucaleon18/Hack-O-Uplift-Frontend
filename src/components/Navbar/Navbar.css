@@ -14,7 +14,7 @@ body {
 
 .nav {
   padding:0 80px;
-  height: 87px;
+  height: 96px;
   width: 100%;
   background-color: #EE010D;
   position: relative;
@@ -96,7 +96,7 @@ body {
     height: 0px;
     transition: all 0.3s ease-in;
     overflow-y: hidden;
-    top: 50px;
+    /* top: 50px; */
     left: -20px;
   }
   .nav > .nav-links > a {
@@ -115,7 +115,7 @@ body {
   }
   .nav > #nav-check:checked ~ .nav-links {
     z-index:999;
-    height: calc(100vh - 100px);
+    /* height: calc(100vh - 100px); */
     overflow-y: auto;
   }
 }
