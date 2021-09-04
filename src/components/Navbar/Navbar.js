@@ -32,10 +32,10 @@ if(user_id !==null ||user_id!==undefined){
               
               if(localStorage.getItem("donor")==="true")
               {
-                window.location = "/donor";
+                window.location = "/selection";
               }
               else{
-                window.location = "/receiver";
+                window.location = "/selection";
               }
               }}>Bludy</div>
           </div>
@@ -54,11 +54,11 @@ if(user_id !==null ||user_id!==undefined){
               <a href="/receiver">Home</a>
             )}
 
-            <a href="/about">About</a>
+            {/* <a href="/about">About</a> */}
 
             {localStorage.getItem("donor") === "true" ? null : (
               <>
-              <a href="#"> Your requests</a>
+              <a href="#user-requests"> Your requests</a>
               <a href="/requestform">Make a Request</a>
               </>
             )}

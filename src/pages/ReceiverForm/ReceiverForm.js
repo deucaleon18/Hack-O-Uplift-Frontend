@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  // eslint-disable-next-line no-unused-vars
+  useEffect,
+  useState,
+} from "react";
 import axios from "axios";
 import "./ReceiverForm.css";
 

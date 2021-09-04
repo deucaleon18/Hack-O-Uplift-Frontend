@@ -1,4 +1,9 @@
-import React, { useEffect, usetate } from "react";
+import React, {
+  useEffect,
+
+  // eslint-disable-next-line no-unused-vars
+  useState,
+} from "react";
 import axios from "axios";
 import Sawo from "sawo";
 
@@ -21,15 +26,15 @@ const Login = () => {
 
         await axios.get(`/sawo/${payload.user_id}`)
         .then((res)=>{
-           console.log(res)
-           console.log(res.data.check)
-           if(res.data.check=="true"){
-             window.location="/selection"
-           }
-              else if(res.data.check == "false") {
-                window.location = "/details";
-              }
-
+          console.log(res);
+          console.log(res.data.check);
+          /* eslint eqeqeq: 0 */
+          if (res.data.check == "true") {
+            window.location = "/selection";
+            /* eslint eqeqeq: 0 */
+          } else if (res.data.check == "false") {
+            window.location = "/details";
+          }
         })
         .catch((err)=>{
           console.log(err)

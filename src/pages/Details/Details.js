@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState
+// , useEffect
+ } from "react";
 import "./Details.css";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -139,7 +141,7 @@ const Details = () => {
               <div className="detail-field">
                 <TextField
                   className={classes.textField}
-                  label="Address"
+                  label="Address Line 1"
                   required
                   value={line1}
                   onChange={(e) => {
@@ -148,6 +150,7 @@ const Details = () => {
                 ></TextField>
                 <TextField
                   className={classes.textField}
+                  label="Address Line 2"
                   required
                   value={line2}
                   onChange={(e) => {
@@ -157,6 +160,7 @@ const Details = () => {
                 <TextField
                   className={classes.textField}
                   required
+                  label="City"
                   value={city}
                   onChange={(e) => {
                     setCity(e.target.value);
@@ -166,6 +170,7 @@ const Details = () => {
                 <TextField
                   className={classes.textField}
                   required
+                  label="State"
                   value={state}
                   onChange={(e) => {
                     setState(e.target.value);

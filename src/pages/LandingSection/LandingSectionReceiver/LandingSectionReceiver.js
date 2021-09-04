@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./LandingSectionReceiver.css";
 import Navbar from "../../../components/Navbar/Navbar";
-import AppBar from "@material-ui/core/AppBar";
+
 
 import Footer from "../../../components/Footer/Footer";
 import InvertColorsIcon from "@material-ui/icons/InvertColors";
@@ -13,30 +13,26 @@ const uid = localStorage.getItem("user_id");
 
 
 const LandingSectionReceiver = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [laoding, setLoading] = useState(false);
+  const [requests, setRequests] = useState([]);
 
- const[laoding,setLoading]=useState(false);
- const[requests,setRequests]=useState([])
+  useEffect(() => {
+    const getUserRequests = async () => {
+      await axios
+        .get(`/userrequests/${uid}`)
 
+        .then((res) => {
+          console.log(res.data);
+          setRequests(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
 
-
-  useEffect(()=>{
-
-    const getUserRequests=async()=>{
-   await axios.get(`/userrequests/${uid}`)
-
-   .then((res)=>{
-       console.log(res.data)
-       setRequests(res.data)
-   })
-   .catch((err)=>{
-     console.log(err)
-   })
-   
-    }
-
- getUserRequests();
-
-  },[])
+    getUserRequests();
+  }, []);
   return (
     <div>
       <Fade top>
@@ -73,19 +69,27 @@ const LandingSectionReceiver = () => {
         </Fade>
       </div>
 
-      <div className="user-requests">
+      <div className="user-requests" id="user-requests">
         <div className="heading">KEEP A TRACK OF YOUR REQUESTS</div>
 
         <div className="request-grid">
           {requests.map((request) => {
-            const { reason, uid, bloodgroup, status, city,_id } = request;
+            // eslint-disable-next-line no-unused-vars
+            const { reason, uid, bloodgroup, status, city, _id } = request;
             return (
               <div className="request-box">
                 <div className="request-box-image"></div>
                 <div className="request-box-title"></div>
 
                 <div className="request-box-desc">{reason}</div>
-                <button className="know-more-btn"  onClick={()=>window.location=`/user/bloodrequest/${_id}`}  >KNOW MORE</button>
+                <button
+                  className="know-more-btn"
+                  onClick={() =>
+                    (window.location = `/user/bloodrequest/${_id}`)
+                  }
+                >
+                  KNOW MORE
+                </button>
               </div>
             );
           })}

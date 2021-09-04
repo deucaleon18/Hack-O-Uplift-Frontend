@@ -1,5 +1,12 @@
-import React, { useEffect, usetate } from "react";
+import React, {
+  // eslint-disable-next-line no-unused-vars
+  useEffect,
+  // eslint-disable-next-line no-unused-vars
+  useState,
+} from "react";
+// eslint-disable-next-line no-unused-vars
 import axios from "axios";
+// eslint-disable-next-line no-unused-vars
 import Sawo from "sawo";
 // import img_1 from "../../utils/images/blood1.jpg"
 // import img_2 from "../../utils/svg/blood2.svg"

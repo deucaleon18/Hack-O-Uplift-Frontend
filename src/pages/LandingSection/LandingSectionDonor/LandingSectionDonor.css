@@ -29,6 +29,24 @@
     width: 80%;
     height: 100%;
 }
+
+.donor-requests{
+     padding-left:10%;
+     background-color: #ff3842;
+     color:white;
+     height:max-content;
+}
+
+.request-grid {
+  align-items: center;
+  height: max-content;
+  width: 100%;
+  padding-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 600px));
+  grid-gap: 30px;
+}
+
 .subtitle_1 {
      font-size: 1.2rem;
      font-weight: 400;

@@ -1,10 +1,9 @@
 
 import React,{useState,useEffect} from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import Selection from '../src/pages/Selection/Selection'
 import Login from "../src/pages/Login/Login";
-
-
+import axios from "axios"
 import LandingSectionDonor from './pages/LandingSection/LandingSectionDonor/LandingSectionDonor'
 import LandingSectionReceiver from './pages/LandingSection/LandingSectionReceiver/LandingSectionReceiver'
 import Details from './pages/Details/Details';
@@ -16,17 +15,53 @@ import RequestEdit from "./pages/RequestEdit/RequestEdit";
 import UserEdit from "./pages/UserEdit/UserEdit";
 
 
+// import { MapContainer } from './components/Maps/Maps';
 
 const Routing = () => {
 
 const[logged,setLogged]=useState(false)
+const[registered,setRegistered]=useState(false)
+
 useEffect(()=>{
-if (
-  localStorage.getItem("user_id") != null ||
-  localStorage.getItem("user_id") != undefined
-) {
-  setLogged(true);
-}
+  if (
+    /* eslint eqeqeq: 0 */
+    localStorage.getItem("user_id") != null ||
+    /* eslint eqeqeq: 0 */
+    localStorage.getItem("user_id") != undefined
+  ) {
+    setLogged(true);
+  }
+
+  if (
+    localStorage.getItem("user_id") != null ||
+    localStorage.getItem("user_id") != undefined
+  ) {
+    const checkForRegistered = async () => {
+      await axios
+        .get(`/sawo/${localStorage.getItem("user_id")}`)
+        .then((res) => {
+          console.log(res);
+          console.log(res.data.check);
+          if (res.data.check == "true") {
+            setRegistered(true);
+
+            //  window.location = "/selection";
+          } else if (res.data.check == "false") {
+            setRegistered(false);
+
+            //  window.location = "/details";
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
+    checkForRegistered();
+    console.log(registered);
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 
   //  const donor = localStorage.getItem("donor");
@@ -38,7 +73,7 @@ if (
           {logged ? <Selection /> : <Login />}
         </Route>
         <Route exact path="/">
-          {!logged ? <Login /> : <Details />}
+          {!logged ? <Login /> : registered ? <Selection /> : <Details />}
         </Route>
 
         <Route exact path="/donor">
@@ -66,6 +101,12 @@ if (
         <Route exact path="/user/edit/:id">
           {logged ? <UserEdit /> : <Login />}
         </Route>
+
+
+        {/* <Route exact path="/maps">
+          {logged ? <MapContainer /> : <Login />}
+        </Route> */}
+
 
       </Router>
     </div>
