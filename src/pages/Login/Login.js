@@ -4,6 +4,7 @@ import Sawo from "sawo";
 
 const Login = () => {
   useEffect(() => {
+
     console.log(process.env.REACT_APP_SAWO_KEY);
     var config = {
       // should be same as the id of the container created on 3rd step
@@ -13,13 +14,28 @@ const Login = () => {
       // Add the API key copied from 2nd step
       apiKey: process.env.REACT_APP_SAWO_KEY,
       // Add a callback here to handle the payload sent by sdk
-      onSuccess: (payload) => {
+      onSuccess: async(payload) => {
         console.log(payload);
         localStorage.setItem("user_id", payload.user_id);
         localStorage.setItem("identifier", payload.identifier);
-        localStorage.setItem("identifier_type", payload.identifier_type);
-        localStorage.setItem("verification_token", payload.verification_token);
-        window.location = "/details";
+
+        await axios.get(`/sawo/${payload.user_id}`)
+        .then((res)=>{
+           console.log(res)
+           console.log(res.data.check)
+           if(res.data.check=="true"){
+             window.location="/selection"
+           }
+              else if(res.data.check == "false") {
+                window.location = "/details";
+              }
+
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
+        
+      
       },
     };
 

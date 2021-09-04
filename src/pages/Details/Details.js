@@ -4,14 +4,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import axios from 'axios'
+import axios from "axios";
 import Fab from "@material-ui/core/Fab";
-
-  
 
 const Details = () => {
   const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
+  const [line1, setLine1] = useState("");
+  const [line2, setLine2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+
   const [blood, setBlood] = useState("");
   const [email, setEmail] = useState("");
 
@@ -20,41 +22,54 @@ const Details = () => {
   const [displayLocation, setDisplayLocation] = useState(false);
   const [displayBlood, setDisplayBlood] = useState(false);
 
-  
-  const uid=localStorage.getItem("user_id")
- 
-const useStyles = makeStyles({
-  textField: {
-    color : "white",
-    width:"80%"
-  }
-});
+  const uid = localStorage.getItem("user_id");
+  const phno = localStorage.getItem("identifier");
 
-  const handleSubmit=
-  // async
-  
-  (e)=>{
-    e.preventDefault()
-    //  await axios.post("/users",{
-    //    name,
-    //    email,
-    //    address:location,
-    //    blood:blood,
-    //    uid
-    //  })
+  const useStyles = makeStyles({
+    textField: {
+      color: "white",
+      width: "80%",
+    },
+  });
 
-    window.location='/selection'
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Submit")
+    console.log(uid)
+    console.log(phno)
+    await axios
+      .post("/postsawo", {
+        name,
+        email,
+        address: {
+          addressLine1: line1,
+          addressLine2: line2,
+          city,
+          state,
+        },
+        bloodgroup: blood,
+        uid,
+        phno,
+      })
+
+      .then((res) => {
+        console.log(res);
+            window.location = "/selection";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
 
+  };
 
-  const classes=useStyles()
+  const classes = useStyles();
 
   return (
     <div className="details">
       <div className="user-details-form">
         <div className="user-details-form-inner">
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form>
             {displayName ? (
               <div className="detail-field">
                 <TextField
@@ -126,11 +141,37 @@ const useStyles = makeStyles({
                   className={classes.textField}
                   label="Address"
                   required
-                  value={location}
+                  value={line1}
                   onChange={(e) => {
-                    setLocation(e.target.value);
+                    setLine1(e.target.value);
                   }}
                 ></TextField>
+                <TextField
+                  className={classes.textField}
+                  required
+                  value={line2}
+                  onChange={(e) => {
+                    setLine2(e.target.value);
+                  }}
+                ></TextField>
+                <TextField
+                  className={classes.textField}
+                  required
+                  value={city}
+                  onChange={(e) => {
+                    setCity(e.target.value);
+                  }}
+                ></TextField>
+
+                <TextField
+                  className={classes.textField}
+                  required
+                  value={state}
+                  onChange={(e) => {
+                    setState(e.target.value);
+                  }}
+                ></TextField>
+
                 <div className="nav-icons">
                   <span>
                     <Fab size="small" style={{ marginRight: "10px" }}>
@@ -161,7 +202,6 @@ const useStyles = makeStyles({
             {displayBlood ? (
               <div className="detail-field">
                 <TextField
-            
                   className={classes.textField}
                   label="Blood-Type"
                   required
@@ -183,7 +223,10 @@ const useStyles = makeStyles({
                     </Fab>
                   </span>
 
-                  <button type="submit" className="submit-button-details">
+                  <button
+                    onClick={handleSubmit}
+                    className="submit-button-details"
+                  >
                     SUBMIT
                   </button>
                 </div>

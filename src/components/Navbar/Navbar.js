@@ -1,5 +1,9 @@
 import React from 'react'
 import './Navbar.css'
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import Fab from "@material-ui/core/Fab";
+
+
 const Navbar = () => {
 
 const user_id=localStorage.getItem("user_id")
@@ -9,7 +13,13 @@ let check;
 if(user_id !==null ||user_id!==undefined){
   check=true;
 }
+ 
 
+ const handleLogout=()=>{
+   localStorage.removeItem("user_id")
+   localStorage.removeItem("identifier")
+   localStorage.removeItem("donor")
+ }
     return (
 
 
@@ -57,9 +67,21 @@ if(user_id !==null ||user_id!==undefined){
     <a href="https://jsfiddle.net/user/jo_Geek/" target="#">JsFiddle</a> */}
 
             {
-              check? <a href="#">Logout</a>:null
-            }
+              check? <><a href="/" onClick={handleLogout}>Logout</a>
+              <Fab>
 
+
+                <AccountCircleIcon  onClick={()=>{
+                  window.location=`/user/edit/${user_id}`
+                }}/>
+              </Fab>
+              </>
+              
+              
+              
+              :null
+            }
+           
 
 
           </div>
