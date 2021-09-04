@@ -10,7 +10,7 @@
 .hero-section-text {
   margin-top: -7px;
   width: 50%;
-  background-color: #EE010D;
+  background-color: #ff3842;
   height: 100%;
 }
 
@@ -61,7 +61,7 @@
   z-index: 1;
   margin-top: -7px;
   width: 100%;
-  background-color: #EE010D;
+  background-color: #ff3842;
   /* height:max-content */
   height: max-content;
   padding-left: 100px;

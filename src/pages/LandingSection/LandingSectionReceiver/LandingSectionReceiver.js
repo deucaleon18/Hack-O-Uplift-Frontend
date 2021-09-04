@@ -78,7 +78,7 @@ const LandingSectionReceiver = () => {
         </div> */}
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
