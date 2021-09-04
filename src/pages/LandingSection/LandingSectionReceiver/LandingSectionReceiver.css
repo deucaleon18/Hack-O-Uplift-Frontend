@@ -10,9 +10,10 @@
 .hero-section-text {
   margin-top: -7px;
   width: 50%;
-  background-color: #880808;
+  background-color: #EE010D;
   height: 100%;
 }
+
 .hero-section-textwrapper {
   display: flex;
   flex-direction: column;
@@ -28,7 +29,8 @@
   width: 50%;
   height: 100%;
 }
-.hero-section-textwrapper > .subtitle_1 {
+
+.hero-section-textwrapper>.subtitle_1 {
   font-size: 1.2rem;
   font-weight: 400;
   padding-left: 2px;
@@ -36,7 +38,8 @@
   width: 100%;
   height: max-content;
 }
-.hero-section-textwrapper > .heading {
+
+.hero-section-textwrapper>.heading {
   text-transform: uppercase;
   font-size: 5.5rem;
   font-weight: 800;
@@ -44,7 +47,8 @@
   width: 100%;
   height: max-content;
 }
-.hero-section-textwrapper > .subtitle_2 {
+
+.hero-section-textwrapper>.subtitle_2 {
   font-size: 1.5rem;
   font-weight: 200;
   padding-left: 2px;
@@ -54,17 +58,17 @@
 }
 
 .user-requests {
-    z-index:1;
+  z-index: 1;
   margin-top: -7px;
   width: 100%;
-  background-color: #880808;
+  background-color: #EE010D;
   /* height:max-content */
   height: max-content;
   padding-left: 100px;
-    padding-right: 100px;
+  padding-right: 100px;
 }
 
-.user-requests > .heading {
+.user-requests>.heading {
   text-transform: uppercase;
   font-size: 4.5rem;
   font-weight: 800;
@@ -77,19 +81,20 @@
 }
 
 
- .request-grid{
-    height:max-content;
-    width:100%;
-    padding-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(3,500px);
-    grid-gap:30px;
-  
+.request-grid {
+  height: max-content;
+  width: 100%;
+  padding-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 500px);
+  grid-gap: 30px;
+
 }
- .request-box{
-    z-index:20;
-    height:200px;
-    border-radius:10px;
-    background-color: white;
-    width:100%;
+
+.request-box {
+  z-index: 20;
+  height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  width: 100%;
 }

@@ -1,3 +1,4 @@
+ 
 import React, { useEffect, usetate } from "react";
 import axios from "axios";
 
@@ -7,7 +8,6 @@ import AppBar from "@material-ui/core/AppBar";
 
 import Footer from "../../../components/Footer/Footer";
 import InvertColorsIcon from "@material-ui/icons/InvertColors";
-import img from "../../../utils/images/blood3.jpg";
 import Fade from "react-reveal/Fade";
 
 const LandingSectionReceiver = () => {
@@ -50,7 +50,7 @@ const LandingSectionReceiver = () => {
       <div className="user-requests">
         <div className="heading">KEEP A TRACK OF YOUR REQUESTS</div>
 
-        <div className="request-grid">
+        {/* <div className="request-grid">
           <div className="request-box">
             <div className="request-box-image"></div>
             <div className="request-box-title"></div>
@@ -75,7 +75,7 @@ const LandingSectionReceiver = () => {
 
             <div className="request-box-desc"></div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* <Footer /> */}

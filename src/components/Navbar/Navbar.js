@@ -6,7 +6,7 @@ const user_id=localStorage.getItem("user_id")
 
 let check;
 
-if(user_id !=null ||user_id!=undefined){
+if(user_id !==null ||user_id!==undefined){
   check=true;
 }
 
@@ -20,12 +20,12 @@ if(user_id !=null ||user_id!=undefined){
           <div class="nav-header">
             <div class="nav-title" onClick={()=>{
               
-              if(localStorage.getItem("donor")=="true")
+              if(localStorage.getItem("donor")==="true")
               {
-                window.location = "/dashboard/donor";
+                window.location = "/donor";
               }
               else{
-                window.location = "/dashboard/receiver";
+                window.location = "/receiver";
               }
               }}>Bludy</div>
           </div>
@@ -38,18 +38,21 @@ if(user_id !=null ||user_id!=undefined){
           </div>
 
           <div class="nav-links">
-            {localStorage.getItem("donor") == "true" ? (
-              <a href="/dashboard/donor">Home</a>
+            {localStorage.getItem("donor") === "true" ? (
+              <a href="/donor">Home</a>
             ) : (
-              <a href="/dashboard/receiver">Home</a>
+              <a href="/receiver">Home</a>
             )}
 
             <a href="/about">About</a>
 
-            {localStorage.getItem("donor") == "true" ? null : (
+            {localStorage.getItem("donor") === "true" ? null : (
+              <>
               <a href="#"> Your requests</a>
+              <a href="/requestform">Make a Request</a>
+              </>
             )}
-            <a href="/requestform">Make a Request</a>
+            
             {/* <a href="https://codepen.io/jo_Geek/" target="#">Codepen</a>
     <a href="https://jsfiddle.net/user/jo_Geek/" target="#">JsFiddle</a> */}
 

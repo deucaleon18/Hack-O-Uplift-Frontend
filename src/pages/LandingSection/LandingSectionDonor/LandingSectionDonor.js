@@ -1,19 +1,23 @@
 import React, { useEffect, usetate } from "react";
 import axios from "axios";
 import "./LandingSectionDonor.css";
-import AppBar from "@material-ui/core/AppBar";
 import Navbar from "../../../components/Navbar/Navbar";
-import Footer from "../../../components/Footer/Footer";
-import InvertColorsIcon from "@material-ui/icons/InvertColors";
-import img from '../../../utils/images/blood3.jpg'
-import Fade from "react-reveal/Fade";
 
 const LandingSectionDonor = () => {
-    return (
-      <div>
-       
+  return (
+    <>
+    <Navbar/>
+    <div className="Donor">
+      <div className="donorLeft">
+        <img src="assets/animated/blood_donation_campagin.gif" alt="" />
       </div>
-    );
-}
+      <div className="donorRight">
+        <h1>Blood Donation Form</h1>
+      </div>
+    </div>
+    </>
+  );
+};
 
-export default LandingSectionDonor
+export default LandingSectionDonor;
+

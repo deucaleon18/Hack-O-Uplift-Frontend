@@ -25,13 +25,12 @@ const Routing = () => {
             <Login />
           </Route>
 
-          <Route exact path="/dashboard/donor">
+          <Route exact path="/donor">
             <LandingSectionDonor />
           </Route>
-          <Route exact path="/dashboard/receiver">
+          <Route exact path="/receiver">
             <LandingSectionReceiver />
           </Route>
-
           <Route exact path="/details">
             <Details />
           </Route>
