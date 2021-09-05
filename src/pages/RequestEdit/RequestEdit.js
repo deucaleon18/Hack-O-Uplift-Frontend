@@ -8,7 +8,7 @@ const RequestEdit = ({ setEdit, id }) => {
     e.preventDefault();
 
     await axios
-      .put(`/bloodrequest/edit/${id}`, {
+      .put(`${process.env.REACT_APP_BASE_URL}/bloodrequest/edit/${id}`, {
         name,
         address: {
           addressLine1: line1,
@@ -48,7 +48,7 @@ const RequestEdit = ({ setEdit, id }) => {
   useEffect(() => {
     const getUserRequest = async () => {
       await axios
-        .get(`/bloodrequest/${id}`)
+        .get(`${process.env.REACT_APP_BASE_URL}/bloodrequest/${id}`)
         .then((res) => {
           console.log(res);
           setTimeout(() => setLoading(false), 2000);

@@ -35,7 +35,7 @@ const RequestDisplayReceiver = () => {
 
   const deleteRequest = async () => {
     await axios
-      .get(`/bloodrequest/delete/${id}`)
+      .get(`${process.env.REACT_APP_BASE_URL}/bloodrequest/delete/${id}`)
       .then(() => {
         console.log("success");
         window.location = "/receiver";
@@ -52,7 +52,7 @@ const RequestDisplayReceiver = () => {
   useEffect(() => {
     const getRequestInfo = async () => {
       await axios
-        .get(`/bloodrequest/${id}`)
+        .get(`${process.env.REACT_APP_BASE_URL}/bloodrequest/${id}`)
         .then((res) => {
           setRequest(res.data);
           setName(res.data.name);

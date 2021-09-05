@@ -20,7 +20,7 @@ const LandingSectionReceiver = () => {
   useEffect(() => {
     const getUserRequests = async () => {
       await axios
-        .get(`/userrequests/${uid}`)
+        .get(`${process.env.REACT_APP_BASE_URL}/userrequests/${uid}`)
 
         .then((res) => {
           console.log(res.data);

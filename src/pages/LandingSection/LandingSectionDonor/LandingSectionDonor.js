@@ -11,7 +11,7 @@ const LandingSectionDonor = () => {
  useEffect(()=>{
    const findDonorRequests = async () => {
      await axios
-       .get(`/donor/${uid}`)
+       .get(`${process.env.REACT_APP_BASE_URL}/donor/${uid}`)
 
        .then((res) => {
          console.log(res);

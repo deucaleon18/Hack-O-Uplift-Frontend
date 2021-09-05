@@ -23,7 +23,7 @@ const ReceiverForm = () => {
     e.preventDefault();
 
     await axios
-      .post("/bloodrequest", {
+      .post(`${process.env.REACT_APP_BASE_URL}/bloodrequest`, {
         name,
         address: {
           addressLine1: line1,
@@ -38,7 +38,7 @@ const ReceiverForm = () => {
       })
       .then((res) => {
         console.log(res);
-        window.location='/receiver'
+        window.location = "/receiver";
       })
 
       .catch((err) => console.log(err));

@@ -30,23 +30,21 @@ const RequestDisplayDonor = () => {
     // console.log("Accept");
 
     await axios
-      .put(`/bloodrequest/edit/${id}`, {
+      .put(`${process.env.REACT_APP_BASE_URL}/bloodrequest/edit/${id}`, {
         status: true,
       })
-      .then((res) => {console.log(res)
-      
-      window.location="/donor"
-      }
-      
-      
-      )
+      .then((res) => {
+        console.log(res);
+
+        window.location = "/donor";
+      })
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     const getRequestInfo = async () => {
       await axios
-        .get(`/bloodrequest/${id}`)
+        .get(`${process.env.REACT_APP_BASE_URL}/bloodrequest/${id}`)
         .then((res) => {
           setRequest(res.data);
           setName(res.data.name);
@@ -59,8 +57,7 @@ const RequestDisplayDonor = () => {
           setReason(res.data.reason);
           setStatus(res.data.status);
           setTimeout(() => setLoading(false), 2000);
-         
-         
+
           // console.log(res);
         })
         .catch((err) => {
@@ -114,7 +111,7 @@ const RequestDisplayDonor = () => {
                 <h1 className="header-text">Reason:</h1>
                 <h1 style={{ color: "black" }}>{reason}</h1>
               </div>
-              
+
               <button onClick={acceptRequest} className="btn">
                 ACCEPT THIS REQUEST
               </button>

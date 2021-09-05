@@ -44,7 +44,11 @@ useEffect(()=>{
   ) {
     const checkForRegistered = async () => {
       await axios
-        .get(`/sawo/${localStorage.getItem("user_id")}`)
+        .get(
+          `${process.env.REACT_APP_BASE_URL}/sawo/${localStorage.getItem(
+            "user_id"
+          )}`
+        )
         .then((res) => {
           console.log(res);
           console.log(res.data.check);

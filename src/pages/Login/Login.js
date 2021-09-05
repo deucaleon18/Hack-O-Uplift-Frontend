@@ -27,7 +27,7 @@ const Login = () => {
         localStorage.setItem("user_id", payload.user_id);
         localStorage.setItem("identifier", payload.identifier);
 
-        await axios.get(`/sawo/${payload.user_id}`)
+        await axios.get(`${process.env.REACT_APP_BASE_URL}/sawo/${payload.user_id}`)
         .then((res)=>{
           console.log(res);
           console.log(res.data.check);

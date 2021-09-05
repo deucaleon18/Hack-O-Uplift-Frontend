@@ -40,7 +40,7 @@ const Details = () => {
     console.log(uid)
     console.log(phno)
     await axios
-      .post("/postsawo", {
+      .post(`${process.env.REACT_APP_BASE_URL}/postsawo/`, {
         name,
         email,
         address: {
@@ -56,7 +56,7 @@ const Details = () => {
 
       .then((res) => {
         console.log(res);
-            window.location = "/selection";
+        window.location = "/selection";
       })
       .catch((err) => {
         console.log(err);
