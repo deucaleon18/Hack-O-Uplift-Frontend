@@ -8,5 +8,7 @@
 ###This is the deployment of our project
 https://vercel.com/deucaleon18/hack-o-uplift-frontend/DMayXhayeWshP9wLFmWy1zhLu5EC
 
+
+###The backend of our project is at https://github.com/Shaviaditya/Hack-O-Uplift-Backend.git
 ###The auth was handled using passwordless SAWO authentication.
 
