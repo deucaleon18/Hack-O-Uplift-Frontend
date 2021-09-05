@@ -1,6 +1,9 @@
 
+.Donor{
+    background-color: #EE010D;
+}
 .single-request-display-receiver{
-
+    background-color: #EE010D;
     display:flex;
     flex-direction: row;
     width:100vw;

@@ -33,7 +33,13 @@ const RequestDisplayDonor = () => {
       .put(`/bloodrequest/edit/${id}`, {
         status: true,
       })
-      .then((res) => console.log(res))
+      .then((res) => {console.log(res)
+      
+      window.location="/donor"
+      }
+      
+      
+      )
       .catch((err) => console.log(err));
   };
 
@@ -53,7 +59,8 @@ const RequestDisplayDonor = () => {
           setReason(res.data.reason);
           setStatus(res.data.status);
           setTimeout(() => setLoading(false), 2000);
-
+         
+         
           // console.log(res);
         })
         .catch((err) => {
@@ -73,16 +80,41 @@ const RequestDisplayDonor = () => {
         <div className="display-right">
           {!loading ? (
             <div className="display-request-details">
-              <h1>Name: {name}</h1>
+              <div className="text">
+                <h1 className="header-text">Name:</h1>
+                <h1 style={{ color: "black" }}>{name}</h1>
+              </div>
+              <div className="text">
+                <h1 className="header-text">Contact-Number:</h1>
+                <h1 style={{ color: "black" }}>{contact}</h1>
+              </div>
+              <div className="text">
+                <h1 className="header-text">Blood-Group:</h1>
+                <h1 style={{ color: "black" }}>{blood}</h1>
+              </div>
+              <div className="text">
+                <h1 className="header-text">Address-Line-1:</h1>
+                <h1 style={{ color: "black" }}>{line1}</h1>
+              </div>
+              <div className="text">
+                <h1 className="header-text">Address-Line-2 :</h1>
+                <h1 style={{ color: "black" }}>{line2}</h1>
+              </div>
 
-              <h1>Contact-Number: {contact}</h1>
-              <h1>Blood-Group: {blood}</h1>
-              <h2>Address: {line1}</h2>
-              <h2> : {line2}</h2>
-              <h2>City: {city}</h2>
-              <h2>State: {state}</h2>
-              <p>Reason: {reason}</p>
+              <div className="text">
+                <h1 className="header-text">City:</h1>
 
+                <h1 style={{ color: "black" }}>{city}</h1>
+              </div>
+              <div className="text">
+                <h1 className="header-text">State:</h1>
+                <h1 style={{ color: "black" }}>{state}</h1>
+              </div>
+              <div className="text">
+                <h1 className="header-text">Reason:</h1>
+                <h1 style={{ color: "black" }}>{reason}</h1>
+              </div>
+              
               <button onClick={acceptRequest} className="btn">
                 ACCEPT THIS REQUEST
               </button>

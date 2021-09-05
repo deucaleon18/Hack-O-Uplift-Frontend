@@ -7,6 +7,9 @@ import React, {
 import axios from "axios";
 import Sawo from "sawo";
 
+import './Login.css'
+
+
 const Login = () => {
   useEffect(() => {
 
@@ -49,16 +52,25 @@ const Login = () => {
   }, []);
 
   return (
-  
-    <div
-      id="login-form-sawo"
-      style={{
-        marginTop: "10px",
-        marginLeft: "500px",
-        height: "90vh",
-        width: "80vh",
-      }}
-    ></div>
+   <div className="login">
+    <div className="centre">
+      <div className="header-login">Bludy</div>
+      <div className="sub-header-login">Your buddy to help you find a blood donor</div>
+      <div
+        id="login-form-sawo"
+        style={{
+          // marginTop: "10px",
+          // marginLeft: "500px",
+          margin: "auto",
+          height: "40vh",
+          width: "80vh",
+          //  backgroundColor:"#861657"
+        }}
+        className="form"
+      ></div>
+      {/* <img src="../../public/assets/images/blood4.jpg"></img> */}
+    </div>
+    </div>
   );
 };
 

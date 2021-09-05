@@ -43,10 +43,9 @@ const LandingSectionReceiver = () => {
           <div className="hero-section-text">
             <div className="hero-section-textwrapper">
               <div className="subtitle_1">Welcome to the Bludy community</div>
-              <div className="heading">Come Let's make a difference</div>
+              <div className="heading">Worry not we will find you a donor </div>
               <div className="subtitle_2">
-                Your one pint of blood donation can save more than 3 lives
-                everyday.So try to donate as much as you can and be a saviour.
+                When you have joined the Bludy community your request can be seen by all the people in your current city 
               </div>
               <div>
                 <span>
@@ -75,21 +74,39 @@ const LandingSectionReceiver = () => {
         <div className="request-grid">
           {requests.map((request) => {
             // eslint-disable-next-line no-unused-vars
-            const { reason, uid, bloodgroup, status, city, _id } = request;
+            const { reason, bloodgroup, status, address, _id,name,phno } = request;
             return (
-              <div className="request-box">
-                <div className="request-box-image"></div>
-                <div className="request-box-title"></div>
+              <div
+                className="request-box"
+                style={
+                  !status
+                    ? { backgroundColor: "#880808" }
+                    : { backgroundColor: "green" }
+                }
+              >
+                <div className="left">
+                  <div className="request-box-field">{name}</div>
+                  <div className="request-box-field">{bloodgroup}</div>
 
-                <div className="request-box-desc">{reason}</div>
-                <button
-                  className="know-more-btn"
-                  onClick={() =>
-                    (window.location = `/user/bloodrequest/${_id}`)
-                  }
-                >
-                  KNOW MORE
-                </button>
+                  <div className="request-box-field">{address.city}</div>
+                  <div className="request-box-field">{phno}</div>
+                  <div className="request-box-reason">
+                    <p>{reason}</p>
+                  </div>
+                </div>
+
+                <div className="right">
+                  <img src="assets/images/drop.png" alt="" className="drop" />
+
+                  <button
+                    className="know-more-btn"
+                    onClick={() =>
+                      (window.location = `/user/bloodrequest/${_id}`)
+                    }
+                  >
+                    KNOW MORE
+                  </button>
+                </div>
               </div>
             );
           })}

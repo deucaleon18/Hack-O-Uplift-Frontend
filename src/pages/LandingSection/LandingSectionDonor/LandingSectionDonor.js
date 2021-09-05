@@ -43,49 +43,59 @@ const LandingSectionDonor = () => {
             <div className="subtitle_1">Welcome to the Bludy community</div>
             <div className="heading">Come Let's make a difference</div>
             <div className="subtitle_2">
-              You can save someone's life today.Check for the available requests in your Donor dashboard.
+              You can save someone's life today.Check for the available requests
+              in your Donor dashboard.
             </div>
             {/* <button className="butn">Schedule your donation</button> */}
           </div>
         </div>
       </div>
 
-
       <div className="donor-requests" id="donor-requests">
         <div className="heading">DONATE NOW</div>
 
         <div className="request-grid">
-
-
-
           {requests.map((request) => {
             // eslint-disable-next-line no-unused-vars
-            const { reason, uid, bloodgroup, status, city, _id } = request;
+            const { reason, bloodgroup, status, address, _id, name, phno } =
+              request;
             return (
-              <div className="request-box">
-                <div className="request-box-image"></div>
-                <div className="request-box-title"></div>
+              <div
+                className="request-box"
+                style={
+                  !status
+                    ? { backgroundColor: "#880808" }
+                    : { backgroundColor: "green" }
+                }
+              >
+                <div className="left">
+                  <div className="request-box-field">{name}</div>
+                  <div className="request-box-field">{bloodgroup}</div>
 
-                <div className="request-box-desc">{reason}</div>
-                <button
-                  className="know-more-btn"
-                  onClick={() => (window.location = `/bloodrequest/${_id}`)}
-                >
-                  KNOW MORE
-                </button>
+                  <div className="request-box-field">{address.city}</div>
+                  <div className="request-box-field">{phno}</div>
+                  <div className="request-box-reason">
+                    <p>{reason}</p>
+                  </div>
+                </div>
+
+                <div className="right">
+                  <img src="assets/images/drop.png" alt="" className="drop" />
+
+                  <button
+                    className="know-more-btn"
+                    onClick={() =>
+                      (window.location = `/bloodrequest/${_id}`)
+                    }
+                  >
+                    KNOW MORE
+                  </button>
+                </div>
               </div>
             );
           })}
-
-
-
         </div>
       </div>
-
-
-
-
-
 
       <Footer />
     </>

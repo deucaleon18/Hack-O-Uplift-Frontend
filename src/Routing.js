@@ -10,9 +10,14 @@ import Details from './pages/Details/Details';
 import RequestForm from './pages/ReceiverForm/ReceiverForm'
 import RequestDisplayDonor from './pages/RequestDisplay/RequestDisplayDonor/RequestDisplayDonor'
 import RequestDisplayReceiver from "./pages/RequestDisplay/RequestDisplayReceiver/RequestDisplayReceiver";
+
+// eslint-disable-next-line no-unused-vars
 import Success from "./pages/Success/Success";
 import RequestEdit from "./pages/RequestEdit/RequestEdit";
 import UserEdit from "./pages/UserEdit/UserEdit";
+
+
+// eslint-disable-next-line no-unused-vars
 import Failure from "./pages/Failure/Failure";
 
 
@@ -102,12 +107,17 @@ useEffect(()=>{
         <Route exact path="/user/edit/:id">
           {logged ? <UserEdit /> : <Login />}
         </Route>
-   <Route exact path="/success">
+
+
+
+   {/* <Route exact path="/success">
      <Success/>
         </Route>
            <Route exact path="/failure">
      <Failure/>
-        </Route>
+        </Route> */}
+
+
       </Router>
     </div>
   );

@@ -10,8 +10,7 @@
 .hero-section-text {
   margin-top: -7px;
   width: 50%;
-  background-color: #ff3842;
-  height: 100%;
+  background-color: #f90941;
 }
 
 .hero-section-textwrapper {
@@ -55,13 +54,15 @@
   padding-top: 30px;
   width: 100%;
   height: max-content;
+  font-family: 'Roboto', sans-serif;
 }
 
 .user-requests {
   z-index: 1;
   margin-top: -7px;
   width: 100%;
-  background-color: #ff3842;
+  background-color: #f90941;
+
   /* height:max-content */
   height: max-content;
   padding-left: 100px;
@@ -88,33 +89,78 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 600px));
   grid-gap: 30px;
+  color: white;
 }
 
 .request-box {
+  display: flex;
+  /* grid-template-columns: (2fr,0.4fr); */
   text-align: right;
   z-index: 20;
   height: 200px;
   border-radius: 10px;
-  background-color: white;
+  color: white;
+  /* background-color: white; */
   width: 100%;
 }
 
-.know-more-btn{
-  border-radius:10px;
+.know-more-btn {
+  /* border-radius:10px; */
   position: relative;
-  bottom:0;
-  border:none;
-  outline:none;
-  cursor:pointer;
-  margin-top: 100px;
+  bottom: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /* margin-top: 100px; */
   transition: 400ms;
-  background-color:#ee010d;
-  color:white;
-  height:30px;
+  background-color: #f90941;
+  width: 100%;
+  color: white;
+  height: 40px;
   margin-right: 20px;
 }
 
-.know-more-btn:hover{
-  background-color:white;
-  color:#ee010d;
+.know-more-btn:hover {
+  background-color: white;
+  color: #f90941;
+}
+
+.drop {
+  height: 100px;
+  width: 60px;
+}
+
+.request-box-field {
+  text-align: left;
+
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 900;
+
+  margin-top: 5px;
+  margin-left: 50px;
+  color: white;
+}
+
+.request-box-reason {
+  text-align: left;
+  margin-left: 50px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  width: 400px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.left {
+  width: 70%;
+}
+
+.right {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
 }
